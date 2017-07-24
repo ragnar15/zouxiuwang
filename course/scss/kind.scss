@@ -1,0 +1,24 @@
+@import "main.scss";
+@import "proList.scss";
+#kindContent{
+    width: 100%;
+    height: 100%;
+    @include flexBox;
+    @include flex-direction('column');
+    #classList{
+         width: 100%;
+         height: 36px;
+         border-bottom: 1px solid #f66;
+         overflow-x: auto;
+         overflow-y: hidden;
+         white-space: nowrap;
+         &::-webkit-scrollbar {display:none}
+        li{
+            display: inline-block;
+            line-height: 36px;
+            margin: 0 12px;
+            
+            
+        }
+    }
+}
