@@ -1,11 +1,8 @@
-
 export default {
-	makeText(str,time){
-		$("#toast").show()
-		$("#toast").html(str);
-		
+	makeText(str ,time){
+		 $("#toast").show().html(str);
 		setTimeout(function(){
-			$("#toast").hide()
+		 $("#toast").hide()
 		},time)
 	}
 }

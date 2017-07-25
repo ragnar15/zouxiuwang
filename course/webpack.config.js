@@ -5,13 +5,16 @@ module.exports = {
 		filename: 'bundle.js'//输出的文件名称
 	},
 	devtool:"source-map",//便于调试，相当于命令行中 webpack --devtool source-map
+	
+	
+	
  	module: {//依赖的模块
         rules: [//模块、规则，如果在webpack旧版本中用的不是rules。用的是loaders
         {
             test: /\.js$/,
             exclude: /node_modules/,
             loader: 'babel-loader',
-            query:{//es6预设
+            query:{
             	presets:["es2015"]
             }
         },
@@ -37,7 +40,7 @@ module.exports = {
         },
         {//背景图片
         	test:/\.(jpg|png|gif)$/,
-        	loader:"url-loader?limit=1024"
+        	loader:"url-loader?limit=1024"//大小1M
         },
         {//字体文件
         	test:/\.(eot|woff|svg|ttf|woff2|gif|appcache)(\?|$)/,

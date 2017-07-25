@@ -1,40 +1,41 @@
-import Register from "./Register";
-import Login from "./Login";
-export default {
+import "./../scss/loginorregister.scss";
+import Register from "./Register.js";
+
+import  login from "./Login.js";
+var User = {
 	loadHeader(){
-		$("#header").load("views/user.html #userHeader",() => {
-			console.log("ok")
+		$("#header").load("views/user.html #userHeader",function(){
+			
 		})
 	},
 	loadContent(){
-		$("#content").load("views/user.html #userContent",() => {
-			console.log("ok")
-			/**
-			 * 此处判断用户有没有登录，如果登录显示用户信息，如果没有登录显示登录注册按钮
-			 *   isLogin 1   ---- 登录
-			 *   userID      -----  用户名
-			 */
+		$("#content").load("views/user.html #userContent",function(){
+			
+			
+			
+			
 			if(localStorage.getItem("isLogin") == "1"){
-				//已经登录
-				$(".successlogin").show();
-				$(".noLogin").hide();
+				//已经登录；
+				$("#successlogin").show();
+				$("#nologin").hide();
 				$("#username").html(localStorage.getItem("userID"));
 			}else{
-				$(".noLogin").show();
-				$(".successlogin").hide();
-				//給注册和登录添加点击事件
-				$("#registerBtn").on("tap",function(){
-					Register.loadHeader();
-					Register.loadContent();
-					
-					$("#footer").css("display","none");
-				})
-				$("#loginBtn").on("tap",function(){
-					Login.loadHeader("user");//登录页面返回的标识
-					Login.loadContent("user");//用于登录成功之后返回页面
-					$("#footer").css("display","none");
-				})
+				$("#successlogin").hide();
+				$("#nologin").show();
 			}
+			
+			
+			$("#registerBtn").on("tap",function(){
+				Register.loadHeader();
+				Register.loadContent();
+				$("#footer").css("display","none");
+			})
+			$("#loginBtn").on("tap",function(){
+				login.loadHeader("user");//登录页面返回的标识
+				login.loadContent("user");//用于登陆成功后返回原来的页面
+				$("#footer").css("display","none");
+			})
 		})
 	}
 }
+export default User;

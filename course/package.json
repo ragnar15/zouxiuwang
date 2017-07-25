@@ -19,7 +19,9 @@
   "name": "webpack",
   "version": "1.0.0",
   "main": "app.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "webpack-dev-server": "^2.5.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server"
